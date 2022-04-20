@@ -1,0 +1,25 @@
+form {
+    text-align: center;
+    width: 30%;
+    margin: 2rem auto 0 auto;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+.form {
+    width: 50%;
+}
+input {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.label {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding-right: 6rem;
+}

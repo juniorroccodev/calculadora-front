@@ -3,4 +3,5 @@ export interface Resultado {
   numero1: number;
   numero2: number;
   resultado: number;
+
 }

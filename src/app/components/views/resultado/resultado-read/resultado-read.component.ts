@@ -1,9 +1,9 @@
-import { Observable, Subscriber } from 'rxjs';
+import { Router } from '@angular/router';
+
 import { ResultadoService } from './../resultado.service';
 import { Resultado } from './../resultado.model';
 import { Component, OnInit } from '@angular/core';
-import { onErrorResumeNext } from 'rxjs/operators';
-import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-resultado-read',
@@ -13,27 +13,24 @@ import { Router } from '@angular/router';
 export class ResultadoReadComponent implements OnInit {
 
   resultados: Resultado[] = [
-    { id: '1', numero1: 22, numero2: 22, resultado: 44}
   ];
 
   displayedColumns: string[] = ['id', 'numero1', 'numero2', 'resultado', 'acoes'];
 
-  constructor(private resultadoService: ResultadoService, private router: Router) {
-   }
+  constructor(private service: ResultadoService, private router: Router) {}
 
   ngOnInit(): void {
-
+    this.findAll(); // => Toda vez que a pagina for carregada, chama esse método findAll
   }
 
-  obterTodosResultados(){
-    this.resultadoService.obterTodos()
-    .then(resultados => console.log(resultados))
-    .catch(error => console.error(error));
-    
+  findAll() {
+    this.service.findAll().subscribe(resposta => {
+      console.log(resposta)
+      this.resultados = resposta;
+    })
   }
 
-  adicionarCategoria() {
-    //this.router.navigate({'resultados/create"})
+  adicionarNovoResultado() {
+    this.router.navigate(["resultados/create"])
   }
-  
 }
