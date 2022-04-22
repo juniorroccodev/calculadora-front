@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class ResultadoService {
 
-  ApiUrl: String = environment.ApiUrl;
+  ApiUrl= environment.ApiUrl;
   
   constructor(private http: HttpClient) { }
 
@@ -19,5 +19,8 @@ export class ResultadoService {
     return this.http.get<Resultado[]>(url)
   }
 
- 
+ create(resultado: Resultado): Observable<Resultado>{
+   return this.http.post<any>(this.ApiUrl, resultado)
+   
+ }
 }

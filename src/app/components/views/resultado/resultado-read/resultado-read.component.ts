@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./resultado-read.component.css']
 })
 export class ResultadoReadComponent implements OnInit {
-
+  resultado:any = 0;
   resultados: Resultado[] = [
   ];
 
@@ -24,13 +24,27 @@ export class ResultadoReadComponent implements OnInit {
   }
 
   findAll() {
+ 
+
+
     this.service.findAll().subscribe(resposta => {
-      console.log(resposta)
+     
       this.resultados = resposta;
     })
   }
 
   adicionarNovoResultado() {
     this.router.navigate(["resultados/create"])
+  }
+
+private calcular(){
+const total = 0;
+this.resultados.forEach((resultados=>{
+  this.resultado = resultados.numero1 + resultados.numero2;
+
+
+}))
+
+
   }
 }

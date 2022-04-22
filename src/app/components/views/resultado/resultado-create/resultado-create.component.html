@@ -1,22 +1,25 @@
-<form>
+<form [formGroup]="resultadoForm" (submit)="createResultado()">
+
     <h1>CRIANDO UMA NOVA SOMA</h1>
      
     <div class="col">
       Numero 1:
-      <input type="text"  name="numero" placeholder="Informe o numero">
+      <input type="text"  name="numero" placeholder="Informe o numero" formControlName="numero1">
     </div>
 
     <div class="col">
       Numero 2:
-      <input type="text"  name="numero" placeholder="Informe o numero">
+      <input type="text"  name="numero" placeholder="Informe o numero"  formControlName="numero2">
     </div>
 
     <div class="button">
-        <button  class="mat-elevation-z8"  mat-button color="primary">REALIZAR CALCULO</button>
+        <button type="submit" class="mat-elevation-z8"  mat-button color="primary">REALIZAR CALCULO</button>
     </div>
 
     <div class="label">
         <label for="text-center">Resultado:</label>
+        <input class="float-right" id="resultado" type="text"  name="resultado" placeholder="Resultado"  formControlName="resultado" readonly >
+        
     </div>
 
 </form>
