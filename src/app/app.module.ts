@@ -24,6 +24,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import{ResultadoCreateComponent} from './components/views/resultado/resultado-create/resultado-create.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
